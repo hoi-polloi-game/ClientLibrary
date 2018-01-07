@@ -1,5 +1,6 @@
 ﻿using System;
 using ClientLibrary.Models;
+using ClientLibrary.Models.Actions;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace ClientLibrary
@@ -16,8 +17,8 @@ namespace ClientLibrary
                 throw new Exception("Missing ServerConnection Connection!");
         }
 
-        private Action<Game> TickAction { get; set; } = new Action<Game>((game) =>
-            throw new Exception("Missing Tick Action!"));
+        private Action<Game> TickAction { get; set; } = (game) =>
+            throw new Exception("Missing Tick Action!");
 
         public ServerConnection(string serverUrl)
         {
@@ -30,9 +31,12 @@ namespace ClientLibrary
 
         public void SetTickAction(Action<Game> tickAction)
         {
-            if (tickAction == null) throw new Exception("Tick Action Required!");
-            TickAction = tickAction;
-            GetConnection().On("Tick", TickAction);
+            TickAction = tickAction ?? throw new Exception("Tick Action Required!");
+            GetConnection().On("Tick", (Game game) =>
+            {
+                TickAction(game);
+                GetConnection().InvokeAsync(GameActions.FinishedTick, game.CurrentTick);
+            });
         }
 
     }

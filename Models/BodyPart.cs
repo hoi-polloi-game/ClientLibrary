@@ -13,10 +13,7 @@ namespace ClientLibrary.Models
         private string _part;
         public string Part
         {
-            get
-            {
-                return _part;
-            }
+            get => _part;
             set
             {
                 switch (value)

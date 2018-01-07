@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ClientLibrary.Models.Actions;
+using ClientLibrary.Models.Results;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace ClientLibrary.Models
@@ -13,8 +14,8 @@ namespace ClientLibrary.Models
         public Guid Uid { get; set; }
         public Position CurrentPosition { get; set; }
 
-        public void SpawnPolloi(List<BodyPart> bodyParts){
-            ServerConnection.GetConnection().InvokeAsync(SpawnActions.SpawnPolloi, Uid, bodyParts);
+        public async Task<SpawnResult> SpawnPolloi(List<BodyPart> bodyParts){
+            return await ServerConnection.GetConnection().InvokeAsync<SpawnResult>(SpawnActions.SpawnPolloi, Uid, bodyParts);
         }
     }
 }

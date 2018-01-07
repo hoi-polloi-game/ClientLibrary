@@ -4,8 +4,8 @@ using System.Linq;
 
 namespace ClientLibrary.Models.Actions
 {
-    public static class SpawnActions
+    public static class GameActions
     {
-        public const string SpawnPolloi = "SpawnPolloi";
+        public const string FinishedTick = "FinishedTick";
     }
 }
