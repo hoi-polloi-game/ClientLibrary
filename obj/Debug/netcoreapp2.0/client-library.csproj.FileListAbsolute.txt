@@ -1,0 +1,8 @@
+C:\Users\Pearse.Hutson\Documents\Personal Projects\hoi-polloi\client-library\obj\Debug\netcoreapp2.0\client-library.csproj.CoreCompileInputs.cache
+C:\Users\Pearse.Hutson\Documents\Personal Projects\hoi-polloi\client-library\obj\Debug\netcoreapp2.0\client-library.AssemblyInfoInputs.cache
+C:\Users\Pearse.Hutson\Documents\Personal Projects\hoi-polloi\client-library\obj\Debug\netcoreapp2.0\client-library.AssemblyInfo.cs
+C:\Users\Pearse.Hutson\Documents\Personal Projects\hoi-polloi\client-library\bin\Debug\netcoreapp2.0\client-library.deps.json
+C:\Users\Pearse.Hutson\Documents\Personal Projects\hoi-polloi\client-library\bin\Debug\netcoreapp2.0\client-library.dll
+C:\Users\Pearse.Hutson\Documents\Personal Projects\hoi-polloi\client-library\bin\Debug\netcoreapp2.0\client-library.pdb
+C:\Users\Pearse.Hutson\Documents\Personal Projects\hoi-polloi\client-library\obj\Debug\netcoreapp2.0\client-library.dll
+C:\Users\Pearse.Hutson\Documents\Personal Projects\hoi-polloi\client-library\obj\Debug\netcoreapp2.0\client-library.pdb
