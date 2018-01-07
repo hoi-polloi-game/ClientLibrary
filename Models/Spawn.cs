@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ClientLibrary.Models.Actions;
+using Microsoft.AspNetCore.SignalR.Client;
 
 namespace ClientLibrary.Models
 {
@@ -10,5 +12,9 @@ namespace ClientLibrary.Models
         public string Name { get; set; }
         public Guid Uid { get; set; }
         public Position CurrentPosition { get; set; }
+
+        public void SpawnPolloi(List<BodyPart> bodyParts){
+            ServerConnection.GetConnection().InvokeAsync(SpawnActions.SpawnPolloi, Uid, bodyParts);
+        }
     }
 }

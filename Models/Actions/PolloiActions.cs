@@ -4,10 +4,10 @@ using System.Linq;
 
 namespace ClientLibrary.Models.Actions
 {
-    public class PolloiActions
+    public static class PolloiActions
     {
-        public readonly string MoveTo = "MoveCreepTo";
-        public readonly string MeleeAttack = "MeleeAttack";
-        public readonly string RangedAttack = "RangedAttack";
+        public static readonly string MoveTo = "MovePolloiTo";
+        public static readonly string MeleeAttack = "MeleeAttack";
+        public static readonly string RangedAttack = "RangedAttack";
     }
 }

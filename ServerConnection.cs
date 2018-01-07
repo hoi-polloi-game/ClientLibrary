@@ -6,22 +6,33 @@ namespace ClientLibrary
 {
     public class ServerConnection
     {
-        internal HubConnection connection { get; set; }
-        private Action<Game> TickAction { get; set; } = new Action<Game>((game) => throw new Exception("Missing Tick Action!"));
+        private static HubConnection connection;
+
+        internal static HubConnection GetConnection()
+        {
+            if (connection != null)
+                return connection;
+            else
+                throw new Exception("Missing ServerConnection Connection!");
+        }
+
+        private Action<Game> TickAction { get; set; } = new Action<Game>((game) =>
+            throw new Exception("Missing Tick Action!"));
 
         public ServerConnection(string serverUrl)
         {
-            var connection = new HubConnectionBuilder()
+            connection = new HubConnectionBuilder()
                 .WithUrl(serverUrl)
                 .Build();
 
             connection.StartAsync();
         }
 
-        public void SetTickAction(Action<Game> tickAction){
-            if(tickAction == null) throw new Exception("Tick Action Required!");
+        public void SetTickAction(Action<Game> tickAction)
+        {
+            if (tickAction == null) throw new Exception("Tick Action Required!");
             TickAction = tickAction;
-            connection.On("Tick", TickAction);
+            GetConnection().On("Tick", TickAction);
         }
 
     }
