@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ClientLibrary.Models;
 using ClientLibrary.Models.Actions;
+using ClientLibrary.Models.Results;
 using Microsoft.AspNetCore.SignalR.Client;
 
 namespace ClientLibrary.Models
@@ -16,19 +17,19 @@ namespace ClientLibrary.Models
         public Position CurrentPosition { get; set; }
         public List<BodyPart> BodyParts { get; set; }
 
-        public void MoveTo(Position newPosition)
+        public async Task<PolloiResult> MoveTo(Position newPosition)
         {
-            ServerConnection.GetConnection().InvokeAsync(PolloiActions.MoveTo, Uid, newPosition);
+            return await ServerConnection.GetConnection().InvokeAsync<PolloiResult>(PolloiActions.MoveTo, Uid, newPosition);
         }
 
-        public void MeleeAttack(IInteractive objectToAttack)
+        public async Task<PolloiResult> MeleeAttack(IInteractive objectToAttack)
         {
-            ServerConnection.GetConnection().InvokeAsync(PolloiActions.MeleeAttack, Uid, objectToAttack.Uid);
+            return await ServerConnection.GetConnection().InvokeAsync<PolloiResult>(PolloiActions.MeleeAttack, Uid, objectToAttack.Uid);
         }
 
-        public void RangedAttack(IInteractive objectToAttack)
+        public async Task<PolloiResult> RangedAttack(IInteractive objectToAttack)
         {
-            ServerConnection.GetConnection().InvokeAsync(PolloiActions.RangedAttack, Uid, objectToAttack.Uid);
+            return await ServerConnection.GetConnection().InvokeAsync<PolloiResult>(PolloiActions.RangedAttack, Uid, objectToAttack.Uid);
         }
     }
 

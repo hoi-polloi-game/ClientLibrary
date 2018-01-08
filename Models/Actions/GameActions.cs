@@ -7,5 +7,6 @@ namespace ClientLibrary.Models.Actions
     public static class GameActions
     {
         public const string FinishedTick = "FinishedTick";
+        public const string AddPlayer = "AddPlayer";
     }
 }

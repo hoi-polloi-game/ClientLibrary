@@ -9,6 +9,7 @@ namespace ClientLibrary.Models.Results
         public const string InvalidActionError = "InvalidActionError";
         public const string MoveBlockedError = "MoveBlockedError";
         public const string CarryCapacityFullError = "CarryCapacityFullError";
+        public const string TooFarAwayError = "TooFarAwayError";
 
         public bool Success { get; set; }
         public Exception Exception { get; set; }
@@ -25,6 +26,7 @@ namespace ClientLibrary.Models.Results
                     case InvalidActionError:
                     case MoveBlockedError:
                     case CarryCapacityFullError:
+                    case TooFarAwayError:
                         _polloiError = value;
                         break;
                     default:
